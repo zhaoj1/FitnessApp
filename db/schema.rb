@@ -61,9 +61,9 @@ ActiveRecord::Schema.define(version: 2019_09_26_201254) do
     t.string "name"
     t.string "username"
     t.string "password"
-    t.integer "age"
-    t.integer "weight"
-    t.integer "charity_id"
+    t.integer "age", null: false
+    t.integer "weight", null: false
+    t.integer "charity_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

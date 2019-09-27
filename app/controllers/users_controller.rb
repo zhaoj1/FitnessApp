@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user.update(user_params)
+        @user.update(user_params_with_args(:age, :weight, :charity_id))
         redirect_to @user
     end
 
@@ -34,6 +34,10 @@ class UsersController < ApplicationController
     private
         def set_user
             @user = User.find(params[:id]) 
+        end
+
+        def user_params_with_args(*args)
+            params.require(:user).permit(*args)
         end
 
         def user_params

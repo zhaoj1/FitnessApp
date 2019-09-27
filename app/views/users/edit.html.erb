@@ -1,0 +1,12 @@
+<h1>New User Form</h1>
+<%= form_for @user do |f| %>
+
+    <%= f.label :weight %>
+    <%= f.text_field :weight %><br>
+
+    <%= f.label :charity_id %>
+    <%= f.collection_select :charity_id, Charity.all, :id, :charity_name %><br>
+
+    <%= f.submit %>
+
+<% end %>
