@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.integer :age
       t.integer :weight
       t.integer :charity_id
-
+      
       t.timestamps
     end
   end

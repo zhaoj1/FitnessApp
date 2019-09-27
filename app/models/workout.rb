@@ -1,6 +1,6 @@
 class Workout < ApplicationRecord
 
-    has_many :musics
     belongs_to :user
+    has_and_belongs_to_many :exercises
 
 end

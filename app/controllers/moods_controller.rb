@@ -5,7 +5,7 @@ class MoodsController < ApplicationController
     end
 
     def create
-        @mood = Mood.create(params.require(:mood).permit(:type, :user_id))
+        @mood = Mood.create(params.require(:mood).permit(:mood_kind, :user_id))
         redirect_to user_path(@mood.user)
     end
 
