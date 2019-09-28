@@ -3,4 +3,6 @@
 
 <p>Age: <%= @user.age %></p>
 <p>Weight: <%= @user.weight %> lbs</p>
-<p>Selected Charity: <%= @user.charity.charity_name %></p>
+
+<%= link_to "Calendar View", user_date_ofs_path(@user) %><br>
+<%= link_to "Edit Profile", edit_user_path(@user) %>

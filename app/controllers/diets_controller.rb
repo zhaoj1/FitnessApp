@@ -37,7 +37,7 @@ class DietsController < ApplicationController
         end
 
         def diet_params
-            params.require(:diet).permit(:meal, :calories, :user_id)
+            params.require(:diet).permit(:meal, :calories, :diet_date, :user_id)
         end
 
 end

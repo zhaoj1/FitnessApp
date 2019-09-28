@@ -14,16 +14,26 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(user_params)
-        redirect_to @user
+        @user = User.new(user_params)
+        if @user.save
+            redirect_to @user
+        else
+            flash[:errors] = @user.errors.full_messages
+            render :new
+        end
     end
 
     def edit
     end
 
     def update
-        @user.update(user_params_with_args(:age, :weight, :charity_id))
-        redirect_to @user
+        @user.update(user_params_with_args(:age, :weight))
+        if @user.save
+            redirect_to @user
+        else
+            flash[:errors] = @user.errors.full_messages
+            render :edit
+        end
     end
 
     def destroy
@@ -41,7 +51,7 @@ class UsersController < ApplicationController
         end
 
         def user_params
-            params.require(:user).permit(:name, :username, :password, :age, :weight, :charity_id)
+            params.require(:user).permit(:name, :username, :password, :age, :weight)
         end
 
 end

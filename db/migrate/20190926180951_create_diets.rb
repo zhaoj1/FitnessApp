@@ -3,7 +3,7 @@ class CreateDiets < ActiveRecord::Migration[6.0]
     create_table :diets do |t|
       t.string :meal
       t.integer :calories
-      t.integer :user_id
+      t.integer :date_of_id
 
       t.timestamps
     end

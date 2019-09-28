@@ -1,5 +1,13 @@
 <h1>New User Form</h1>
+
 <%= form_for @user do |f| %>
+
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |err| %>
+            <p><%= err %></p>
+        <% end %>
+    <% end %>
+
     <%= f.label :username %>
     <%= f.text_field :username %><br>
 
@@ -14,9 +22,6 @@
 
     <%= f.label :weight %>
     <%= f.text_field :weight %><br>
-
-    <%= f.label :charity_id %>
-    <%= f.collection_select :charity_id, Charity.all, :id, :charity_name %><br>
 
     <%= f.submit %>
 

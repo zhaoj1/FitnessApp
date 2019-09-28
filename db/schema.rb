@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_201254) do
+ActiveRecord::Schema.define(version: 2019_09_27_173808) do
 
-  create_table "charities", force: :cascade do |t|
-    t.string "charity_name"
-    t.integer "amount_donated"
+  create_table "date_ofs", force: :cascade do |t|
+    t.date "date_of"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_201254) do
   create_table "diets", force: :cascade do |t|
     t.string "meal"
     t.integer "calories"
-    t.integer "user_id"
+    t.integer "date_of_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,23 +36,14 @@ ActiveRecord::Schema.define(version: 2019_09_26_201254) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "exercises_workouts", force: :cascade do |t|
-    t.integer "workout_id"
-    t.integer "exercise_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "moods", force: :cascade do |t|
-    t.string "mood_kind"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "exercises_workouts", id: false, force: :cascade do |t|
+    t.integer "exercise_id", null: false
+    t.integer "workout_id", null: false
   end
 
   create_table "sleeps", force: :cascade do |t|
     t.integer "hours"
-    t.integer "user_id"
+    t.integer "date_of_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -61,9 +52,8 @@ ActiveRecord::Schema.define(version: 2019_09_26_201254) do
     t.string "name"
     t.string "username"
     t.string "password"
-    t.integer "age", null: false
-    t.integer "weight", null: false
-    t.integer "charity_id", null: false
+    t.integer "age"
+    t.integer "weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -71,7 +61,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_201254) do
   create_table "workouts", force: :cascade do |t|
     t.string "name"
     t.integer "length"
-    t.integer "user_id"
+    t.integer "date_of_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
