@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  charity_name: MyString
+  amount_donated: 1
+
+two:
+  charity_name: MyString
+  amount_donated: 1

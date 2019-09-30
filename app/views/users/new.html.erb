@@ -1,0 +1,28 @@
+<h1>New User Form</h1>
+
+<%= form_for @user do |f| %>
+
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |err| %>
+            <p><%= err %></p>
+        <% end %>
+    <% end %>
+
+    <%= f.label :username %>
+    <%= f.text_field :username %><br>
+
+    <%= f.label :password %>
+    <%= f.text_field :password %><br>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :age %>
+    <%= f.text_field :age %><br>
+
+    <%= f.label :weight %>
+    <%= f.text_field :weight %><br>
+
+    <%= f.submit %>
+
+<% end %>
