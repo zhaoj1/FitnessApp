@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-    # has_secure_password
+    has_secure_password
     
     has_many :date_ofs
     has_many :workouts, through: :date_ofs
@@ -9,7 +9,7 @@ class User < ApplicationRecord
     has_many :diets, through: :date_ofs
 
     validates :username, presence: true
-    validates :password, presence: true
+    # validates :password, presence: true
     validates :name, presence: true
     validates :username, uniqueness: true
     validates :age, presence: true

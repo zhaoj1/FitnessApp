@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_09_27_173808) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.integer "age"
     t.integer "weight"
     t.datetime "created_at", precision: 6, null: false
