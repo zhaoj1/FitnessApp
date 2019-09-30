@@ -10,9 +10,7 @@
     <p><%= sleep.hours %> hrs</p>
 <% end %><br>
 
-
 <h3>Workouts</h3>
 <% @date.workouts.each do |workout| %>
-    <p><%= link_to workout.name, controller: 'workouts', action: "show", id: workout.id %></p>
-    <%= @date.workouts %>
+    <p><%= link_to workout.name, workout_path(workout) %></p>
 <% end %>

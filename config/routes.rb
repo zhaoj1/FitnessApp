@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   
   resources :users, only: :show do 
     resources :date_ofs, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
-      resources :workouts, :diets, :sleeps
+      resources :workouts, shallow: true
+      resources :diets, shallow: true
+      resources :sleeps, shallow: true
     end
   end
 
