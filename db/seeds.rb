@@ -12,10 +12,10 @@
 # Diet.destroy_all
 # Exercise.destroy_all
 
-user1 = User.create(username: "user1", password: "password1", name: "name1", age: 23, weight: 160)
-user2 = User.create(username: "user2", password: "password2", name: "name2", age: 35, weight: 120)
-user3 = User.create(username: "user3", password: "password3", name: "name3", age: 62, weight: 110)
-user4 = User.create(username: "user4", password: "password4", name: "name4", age: 1, weight: 200)
+user1 = User.create(username: "user1", password_digest: BCrypt::Password.create("password1"), name: "name1", age: 23, weight: 160)
+user2 = User.create(username: "user2", password_digest: BCrypt::Password.create("password2"), name: "name2", age: 35, weight: 120)
+user3 = User.create(username: "user3", password_digest: BCrypt::Password.create("password3"), name: "name3", age: 62, weight: 110)
+user4 = User.create(username: "user4", password_digest: BCrypt::Password.create("password4"), name: "name4", age: 1, weight: 200)
 
 date1 = DateOf.create(date_of: Date.current, user_id: user1.id)
 date2 = DateOf.create(date_of: Date.current, user_id: user2.id)

@@ -1,12 +1,20 @@
 class UsersController < ApplicationController
 
     before_action :set_user, only: [:show, :edit, :update, :destroy]
+    skip_before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
 
     def main
         render :main
     end
 
     def show
+        # current_user = User.find_by(id: session[:user_id])
+        # if @user
+        #     render :show
+        # else
+        #     flash[:error] = "You must be logged in to view this page."
+        #     redirect_to login_path
+        # end
     end
 
     def new
@@ -15,6 +23,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        @user.password_digest = BCrypt::Password.create(params[:password_digest])
         if @user.save
             redirect_to @user
         else
@@ -51,7 +60,7 @@ class UsersController < ApplicationController
         end
 
         def user_params
-            params.require(:user).permit(:name, :username, :password, :age, :weight)
+            params.require(:user).permit(:name, :username, :password_digest, :age, :weight)
         end
 
 end
