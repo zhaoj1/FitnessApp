@@ -1,1 +1,7 @@
-CALENDAR GEM
+<%= month_calendar do |date| %>
+    <% if DateOf.find_by(date_of: date) %>
+        <%= link_to date.day, user_date_of_path(user_id: DateOf.find_by(date_of: date).user_id, id: DateOf.find_by(date_of: date).id) %>
+    <% else %>
+        <%= link_to date.day, new_user_date_of_path(date_of: date.strftime.to_date) %>
+    <% end %>
+<% end %>

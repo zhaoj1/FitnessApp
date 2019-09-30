@@ -9,7 +9,7 @@ class User < ApplicationRecord
     has_many :diets, through: :date_ofs
 
     validates :username, presence: true
-    validates :password_digest, presence: true
+    # validates :password, presence: true
     validates :name, presence: true
     validates :username, uniqueness: true
     validates :age, presence: true

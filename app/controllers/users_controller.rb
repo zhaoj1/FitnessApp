@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        @user.password_digest = BCrypt::Password.create(params[:password_digest])
         if @user.save
             redirect_to @user
         else
