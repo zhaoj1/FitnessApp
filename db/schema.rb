@@ -28,10 +28,13 @@ ActiveRecord::Schema.define(version: 2019_09_27_173808) do
   end
 
   create_table "exercises", force: :cascade do |t|
-    t.string "name"
-    t.string "muscle"
-    t.string "equipment"
-    t.string "difficulty"
+    t.string "exercise_name"
+    t.string "image_url"
+    t.string "page_url"
+    t.string "exercise_difficulty"
+    t.string "exercise_impact_level"
+    t.string "target_body_parts"
+    t.string "exercise_video"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
