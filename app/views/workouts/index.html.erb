@@ -1,3 +1,9 @@
 <h1>All My Favorite Workouts!!!</h1>
 
-<%=  %> 
+<ul>
+<% @workouts.each do |workout| %>
+    <li><%= link_to workout.name, user_workout_path(workout) %></li>
+<% end %>
+</ul>
+
+<%= link_to "New Workout", new_user_workout_path %>

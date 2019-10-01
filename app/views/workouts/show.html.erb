@@ -1,2 +1,12 @@
 <h1><%= @workout.name %></h1>
+<%= @workout.workout_date %>
 <%= @workout.length %>
+
+<p>Exercises</p>
+<ul>
+<% @workout.exercises.each do |exercise| %>
+    <li><%= link_to exercise.exercise_name, exerise_path(exercise) %></li>
+<% end %>
+</ul>
+
+<%= link_to "Add Exercises", user_workout_exercises_path %>
