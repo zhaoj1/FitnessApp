@@ -2,6 +2,8 @@ require 'nokogiri'
 require 'httparty'
 require 'byebug'
 
+# require_relative './app/models/exercise.rb'
+
 def scraper1
     url = 'https://sworkit.com/exercises'
     unparsed_page = HTTParty.get(url)
@@ -28,7 +30,8 @@ def scraper1
             exercise_video: exercise_details.css('video')[0].attributes['src'].value
         }
         exercises[index].merge!(exercise)
-        # Exercise.create(each_exercise)
+        # byebug
+        Exercise.create(exercises[index])
         # puts each_exercise
         puts "creating #{each_exercise[:exercise_name]}"
         index += 1
@@ -39,13 +42,6 @@ end
 
 scraper1 
 
-#then within each individual exercise page i.e.push-ups (We want video,  difficulty, impact level, and target body parts)
-# https://sworkit.com/exercise/push-ups 
-# individual_exercise = parsed_page.css('div.shadow.card.shadow-card')
-# exercise_difficulty = exercise_page.css('p')[0].text
-# exercise_impact_level = exercise_page.css('p')[1].text
-# target_body_parts = exercise_page.css('p')[2].text
-# exercise_video = exercise_page.css('video')[0].attributes['src'].value
 
 
 
