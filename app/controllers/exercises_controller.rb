@@ -19,7 +19,7 @@ class ExercisesController < ApplicationController
     private
 
     def exercise_params
-        params.require(:exercise).permit(:exercise_name, :image_url, :page_url, :exercise_difficulty, :exercise_impact_level, :target_body_parts, :exercise_video)
+        params.require(:exercise).permit(:exercise_name, :image_url, :page_url, :exercise_difficulty, :exercise_impact_level, :target_body_parts, :exercise_video, :category)
     end
 
 end

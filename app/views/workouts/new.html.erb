@@ -7,8 +7,10 @@
     <%= f.label :length %>
     <%= f.text_field :length %>
 
+    <!--update date selection-->
     <%= f.label :date_of_id %>
     <%= f.collection_select :date_of_id, @DateOf.all, :id, :date_of %>
 
+    <!--choose from database of exercises (by category)-->
     <%= f.submit %>
 <% end %>

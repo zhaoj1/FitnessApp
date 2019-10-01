@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_09_27_173808) do
     t.string "exercise_impact_level"
     t.string "target_body_parts"
     t.string "exercise_video"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -64,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_09_27_173808) do
   create_table "workouts", force: :cascade do |t|
     t.string "name"
     t.integer "length"
-    t.integer "date_of_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

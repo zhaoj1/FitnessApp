@@ -70,11 +70,15 @@ def scraper1
             exercise_difficulty: exercise_details.css('p')[0] ? exercise_details.css('p')[0].text : "no information",
             exercise_impact_level: exercise_details.css('p')[1] ? exercise_details.css('p')[1].text : "no information",
             target_body_parts: exercise_details.css('p')[2] ? exercise_details.css('p')[2].text : "no information",
-            exercise_video: exercise_details.css('video')[0] ? exercise_details.css('video')[0].attributes['src'].value : "no video"
+            exercise_video: exercise_details.css('video')[0] ? exercise_details.css('video')[0].attributes['src'].value : "no video",
+            category: "Upper Body"
         }
         exercises[index].merge!(exercise) #pushes 4 attributes into array[index] for each exercise
         Exercise.create(exercises[index]) #creates the full exercise & details in the database
         puts "#{index + 1}: creating #{each_exercise[:exercise_name]}"  # puts each_exercise
         index += 1
     end 
+    Exercise.category
 end 
+
+scraper1

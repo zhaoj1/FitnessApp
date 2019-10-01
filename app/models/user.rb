@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_secure_password
     
     has_many :date_ofs
-    has_many :workouts, through: :date_ofs
+    has_many :workouts
     has_many :exercises, through: :workouts
     has_many :sleeps, through: :date_ofs
     has_many :diets, through: :date_ofs

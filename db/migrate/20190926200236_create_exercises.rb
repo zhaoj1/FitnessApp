@@ -8,6 +8,7 @@ class CreateExercises < ActiveRecord::Migration[6.0]
       t.string :exercise_impact_level
       t.string :target_body_parts
       t.string :exercise_video
+      t.string :category
 
       t.timestamps
     end
