@@ -4,17 +4,17 @@ class ExercisesController < ApplicationController
         @exercises = Exercise.all
     end
 
-    def new
-        @exercise = Exercise.new
-    end
+    # def new
+    #     @exercise = Exercise.new
+    # end
 
     def show
         @exercise = Exercise.find(params[:id])
     end
 
-    def create
-        @exercise = Exercise.create(exercise_params)
-    end
+    # def create
+    #     @exercise = Exercise.create(exercise_params)
+    # end
 
     private
 

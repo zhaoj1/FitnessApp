@@ -11,4 +11,37 @@ class Exercise < ApplicationRecord
        Exercise.where(id: (356..381)).update_all(category: "Pilates")
        Exercise.where(id: (382..452)).update_all(category: "Stretching")
     end 
+
+    def self.upper_body
+        Exercise.where(category: "Upper Body")
+    end
+
+    def self.lower_body
+        Exercise.where(category: "Lower Body")
+    end
+
+    def self.core
+        Exercise.where(category: "Core")
+    end
+
+    def self.back
+        Exercise.where(category: "Back")
+    end
+
+    def self.cardio
+        Exercise.where(category: "Cardio")
+    end
+
+    def self.yoga
+        Exercise.where(category: "Yoga")
+    end
+
+    def self.pilates
+        Exercise.where(category: "Pilates")
+    end
+
+    def self.stretching
+        Exercise.where(category: "Stretching")
+    end
+
 end

@@ -1,5 +1,5 @@
-<% if flash[:error] %>
-    <p><%= flash[:error] %></p>
+<% if flash[:login_error] %>
+    <p><%= flash[:login_error] %></p>
 <% end %>
 
 <%= form_tag login_path do %>

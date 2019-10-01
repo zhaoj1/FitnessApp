@@ -2,7 +2,7 @@
 
 <ul>
 <% @workouts.each do |workout| %>
-    <li><%= link_to workout.name, user_workout_path(workout) %></li>
+    <li><%= link_to workout.name, user_workout_path(user_id: workout.user_id, id: workout.id) %></li>
 <% end %>
 </ul>
 

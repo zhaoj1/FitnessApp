@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   resources :users do 
     resources :workouts do 
-      resources :exercises, only: [:new, :create, :show, :index], shallow: true
+      resources :exercises, only: [:new, :create, :show], shallow: true
     end
     resources :date_ofs, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
       resources :diets, shallow: true
@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new', as: :login
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: :logout
+
+  get '/exercises', to: 'exercises#index'
 
 end

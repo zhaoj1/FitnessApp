@@ -1,13 +1,12 @@
 <h1>New Workout Form</h1>
 
-
-<%= form_tag new_user_workout_path do %>
-    <%= label_tag :for, "Name " %>
-    <%= text_field_tag :"user[workout][name]" %><br>
-    <%= label_tag :for, "Length " %>
-    <%= text_field_tag :"user[workout][length]" %><br>
-    <%= label_tag :for, "Workout Date " %>
-    <%= text_field_tag :"user[workout][workout_date]" %><br>
+<%= form_tag user_workouts_path do %>
+    <%= label_tag "Name " %>
+    <%= text_field_tag :name %><br>
+    <%= label_tag "Length " %>
+    <%= text_field_tag :length %><br>
+    <%= label_tag "Workout Date " %>
+    <%= text_field_tag :workout_date %><br>
 
     <%= submit_tag "Create Workout" %>
 <% end %>

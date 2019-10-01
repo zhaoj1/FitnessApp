@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     before_action :set_user, only: [:show, :edit, :update, :destroy]
-    skip_before_action :authenticate, only: [:new, :create, :edit, :update, :destroy]
+    skip_before_action :authenticate, only: [:new, :create, :destroy, :main]
 
     def main
         render :main
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 
     private
         def set_user
-            @user = User.find(params[:id]) 
+            @user = User.find_by(id: session[:user_id]) 
         end
 
         def user_params_with_args(*args)
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
         end
 
         def user_params
-            params.require(:user).permit(:name, :username, :password_digest, :age, :weight)
+            params.require(:user).permit(:name, :username, :password, :age, :weight)
         end
 
 end

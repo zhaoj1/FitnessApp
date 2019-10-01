@@ -1,0 +1,66 @@
+<h1>All Exercises</h1>
+
+<ul>
+<h3>Upper Body</h3>
+<% Exercise.upper_body.each do |exercise| %>
+    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
+    <img src=<%=exercise.image_url%> />
+    <!-- <%= link_to "Add to workout" %> exercises_workout join table -->
+<% end %>
+</ul>
+
+<ul>
+<h3>Lower Body</h3>
+<% Exercise.lower_body.each do |exercise| %>
+    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
+    <img src=<%=exercise.image_url%> />
+<% end %>
+</ul>
+
+<ul>
+<h3>Core</h3>
+<% Exercise.core.each do |exercise| %>
+    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
+    <img src=<%=exercise.image_url%> />
+<% end %>
+</ul>
+
+<ul>
+<h3>Back</h3>
+<% Exercise.back.each do |exercise| %>
+    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
+    <img src=<%=exercise.image_url%> />
+<% end %>
+</ul>
+
+<ul>
+<h3>Cardio</h3>
+<% Exercise.cardio.each do |exercise| %>
+    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
+    <img src=<%=exercise.image_url%> />
+<% end %>
+</ul>
+
+<ul>
+<h3>Yoga</h3>
+<% Exercise.yoga.each do |exercise| %>
+    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
+    <img src=<%=exercise.image_url%> />
+<% end %>
+</ul>
+
+<ul>
+<h3>Pilates</h3>
+<% Exercise.pilates.each do |exercise| %>
+    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
+    <img src=<%=exercise.image_url%> />
+<% end %>
+</ul>
+
+<ul>
+<h3>Stretching</h3>
+<% Exercise.stretching.each do |exercise| %>
+    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
+    <img src=<%=exercise.image_url%> />
+<% end %>
+</ul>
