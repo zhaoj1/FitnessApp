@@ -44,4 +44,10 @@ class Exercise < ApplicationRecord
         Exercise.where(category: "Stretching")
     end
 
+    def add_to_workout(workout_id)
+        @workout = Workout.find_by(id: workout_id)
+        @workout.exercises_array << self
+        @workout.save
+    end
+
 end

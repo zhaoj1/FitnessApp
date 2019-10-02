@@ -13,10 +13,13 @@ Rails.application.routes.draw do
 
   root 'users#main'
 
+  post '/users/:id/myworkout/', to: 'users#myworkout'
   get '/login', to: 'sessions#new', as: :login
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: :logout
 
   get '/exercises', to: 'exercises#index'
+
+  get '/:id/add_to_workout', to: 'exercises#add_to_workout'
 
 end

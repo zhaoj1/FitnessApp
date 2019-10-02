@@ -16,6 +16,13 @@ class ExercisesController < ApplicationController
     #     @exercise = Exercise.create(exercise_params)
     # end
 
+    def add_to_workout
+        # @workout = Workout.find_by(id: workout.id)
+        @exercise = Exercise.find(params[:id])
+        @exercise.add_to_workout(@workout)
+        redirect_to @workout
+    end
+
     private
 
     def exercise_params

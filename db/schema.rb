@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2019_09_27_173808) do
     t.string "name"
     t.integer "length"
     t.date "workout_date"
+    t.string "exercises_array", default: "--- []\n"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
