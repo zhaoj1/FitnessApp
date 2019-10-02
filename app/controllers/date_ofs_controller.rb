@@ -36,7 +36,7 @@ class DateOfsController < ApplicationController
 
     private
         def set_date
-            @date = DateOf.find(params[:id])
+            @date = DateOf.find_by(id: params[:id], user_id: session[:user_id])
         end
 
         def date_params

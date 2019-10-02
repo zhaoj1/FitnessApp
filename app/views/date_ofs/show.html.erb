@@ -12,7 +12,7 @@
 
 <h3>Workouts</h3>
 <% @date.workouts.each do |workout| %>
-    <p><%= link_to workout.name, workout_path(workout) %></p>
+    <p><%= link_to workout.name, user_workout_path(user_id: session[:user_id], id: workout.id) %></p>
 <% end %>
 
 <%= link_to "Back", user_date_ofs_path(@user) %>

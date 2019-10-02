@@ -4,8 +4,7 @@ class DateOf < ApplicationRecord
     belongs_to :user
    
     def workouts
-        Workout.where(workout_date: self)
+        @workout = Workout.where(workout_date: self.date_of)
     end
-
 
 end

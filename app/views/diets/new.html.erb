@@ -1,1 +1,12 @@
-<h1><%%></h1>
+<h1>New Meal</h1>
+
+<%= form_for @diet do |f| %>
+    <%= f.label :meal %>
+    <%= f.text_field :meal %>
+
+    <%= f.label :calories %>
+    <%= f.text_field :calories %>
+
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+<% end %>

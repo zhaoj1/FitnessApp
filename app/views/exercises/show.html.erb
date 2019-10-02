@@ -4,12 +4,11 @@
 <p><%= @exercise.exercise_impact_level %></p>
 <p><%= @exercise.target_body_parts %></p>
 
-
-
 <%= form_tag "/users/#{session[:user_id]}/myworkout/", method: "post" do %>
 <%= collection_select(:workout, :id, Workout.where(user_id: session[:user_id]), :id, :name) %>
 <%= hidden_field_tag "exercise_id", @exercise.id %>
 <%= submit_tag("Add to Workout") %>
 <% end %>
+
 <br><%= link_to "Back", exercises_path %>
 <br><video src=<%= @exercise.exercise_video %> autoplay loop />
