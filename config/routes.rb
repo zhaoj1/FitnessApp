@@ -6,8 +6,6 @@ Rails.application.routes.draw do
       resources :exercises, only: [:new, :create, :show], shallow: true
     end
     resources :date_ofs, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
-      resources :diets, shallow: true
-      resources :sleeps, shallow: true 
     end
   end
 

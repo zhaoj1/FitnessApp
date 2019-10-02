@@ -1,18 +1,10 @@
-<h1><%= @date.date_of.strftime("%B %d") %> Stats</h1>
-
-<h3>Meals</h3>
-<% @date.diets.each do |meal| %>
-    <p><%= meal.meal %></p>
-<% end %>
-
-<h3>Sleep</h3>
-<% @date.sleeps.each do |sleep| %>
-    <p><%= sleep.hours %> hrs</p>
-<% end %>
+<h1><%= @date.date_of.strftime("%B %d") %> Workouts</h1>
 
 <h3>Workouts</h3>
+<ul>
 <% @date.workouts.each do |workout| %>
-    <p><%= link_to workout.name, user_workout_path(user_id: session[:user_id], id: workout.id) %></p>
+    <li><%= link_to workout.name, user_workout_path(user_id: session[:user_id], id: workout.id) %></li>
 <% end %>
+</ul>
 
 <%= link_to "Back", user_date_ofs_path(@user) %>

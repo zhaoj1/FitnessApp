@@ -3,11 +3,11 @@
 <p>Workout Length: <%= pluralize(@workout.length, 'Minute') %></p>
 
 <p>Exercises</p>
-<ul>
 <% @workout.exercises.each do |exercise| %>
-    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
+<img src=<%=exercise.image_url%> style="width:420px;height:200px"/><br>
+<%= link_to exercise.exercise_name, exercise_path(exercise) %><br><br>
 <% end %>
-</ul>
+
 
 <%= link_to "View Exercises", exercises_path %><br>
 <%= link_to "Back", user_workouts_path %>

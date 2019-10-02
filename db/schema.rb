@@ -19,14 +19,6 @@ ActiveRecord::Schema.define(version: 2019_09_27_173808) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "diets", force: :cascade do |t|
-    t.string "meal"
-    t.integer "calories"
-    t.integer "date_of_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "exercises", force: :cascade do |t|
     t.string "exercise_name"
     t.string "image_url"
@@ -43,13 +35,6 @@ ActiveRecord::Schema.define(version: 2019_09_27_173808) do
   create_table "exercises_workouts", id: false, force: :cascade do |t|
     t.integer "exercise_id", null: false
     t.integer "workout_id", null: false
-  end
-
-  create_table "sleeps", force: :cascade do |t|
-    t.integer "hours"
-    t.integer "date_of_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -5,8 +5,6 @@ class User < ApplicationRecord
     has_many :date_ofs
     has_many :workouts
     has_many :exercises, through: :workouts
-    has_many :sleeps, through: :date_ofs
-    has_many :diets, through: :date_ofs
 
     validates :username, presence: true
     # validates :password, presence: true
