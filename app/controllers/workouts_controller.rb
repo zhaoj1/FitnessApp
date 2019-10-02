@@ -3,7 +3,7 @@ class WorkoutsController < ApplicationController
     before_action :set_workout, only: [:show, :edit, :update, :destroy]
 
     def index
-        @workouts = Workout.all
+        @workouts = Workout.where(user_id: @user)
     end
 
     def show

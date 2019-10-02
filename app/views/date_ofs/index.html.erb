@@ -5,3 +5,4 @@
         <%= link_to date.day, new_user_date_of_path(date_of: date.strftime.to_date) %>
     <% end %>
 <% end %>
+<%= link_to "Back", user_path(@user) %>

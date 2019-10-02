@@ -1,5 +1,17 @@
 <h1>All Exercises</h1>
 
+<div class="quick_links"> <!-- sidebar? + back to top -->
+        <a href="#upper_body">Upper Body</a><br>
+        <a href="#lower_body">Lower Body</a><br>
+        <a href="#core">Core</a><br>
+        <a href="#back">Back</a><br>
+        <a href="#cardio">Cardio</a><br>
+        <a href="#yoga">Yoga</a><br>
+        <a href="#pilates">Pilates</a><br>
+        <a href="#stretching">Stretching</a><br>
+</div>
+
+<div id="upper_body">
 <ul>
 <h3>Upper Body</h3>
 <% Exercise.upper_body.each do |exercise| %>
@@ -8,7 +20,9 @@
     <!-- <%= link_to "Add to workout" %> exercises_workout join table -->
 <% end %>
 </ul>
+</div>
 
+<div id="lower_body">
 <ul>
 <h3>Lower Body</h3>
 <% Exercise.lower_body.each do |exercise| %>
@@ -16,7 +30,9 @@
     <img src=<%=exercise.image_url%> />
 <% end %>
 </ul>
+</div>
 
+<div id="core">
 <ul>
 <h3>Core</h3>
 <% Exercise.core.each do |exercise| %>
@@ -24,7 +40,9 @@
     <img src=<%=exercise.image_url%> />
 <% end %>
 </ul>
+</div>
 
+<div id="back">
 <ul>
 <h3>Back</h3>
 <% Exercise.back.each do |exercise| %>
@@ -32,7 +50,9 @@
     <img src=<%=exercise.image_url%> />
 <% end %>
 </ul>
+</div>
 
+<div id="cardio">
 <ul>
 <h3>Cardio</h3>
 <% Exercise.cardio.each do |exercise| %>
@@ -40,7 +60,9 @@
     <img src=<%=exercise.image_url%> />
 <% end %>
 </ul>
+</div>
 
+<div id="yoga">
 <ul>
 <h3>Yoga</h3>
 <% Exercise.yoga.each do |exercise| %>
@@ -48,7 +70,9 @@
     <img src=<%=exercise.image_url%> />
 <% end %>
 </ul>
+</div>
 
+<div id="pilates">
 <ul>
 <h3>Pilates</h3>
 <% Exercise.pilates.each do |exercise| %>
@@ -56,7 +80,9 @@
     <img src=<%=exercise.image_url%> />
 <% end %>
 </ul>
+</div>
 
+<div id="stretching">
 <ul>
 <h3>Stretching</h3>
 <% Exercise.stretching.each do |exercise| %>
@@ -64,3 +90,4 @@
     <img src=<%=exercise.image_url%> />
 <% end %>
 </ul>
+</div>
