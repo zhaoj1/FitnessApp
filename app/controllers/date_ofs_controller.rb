@@ -8,14 +8,15 @@ class DateOfsController < ApplicationController
     end
 
     def new
-        @date_of = DateOf.new(date_params)
-        render :new
-        @date_of.save
+        @date_of = DateOf.create(date_params)
+        redirect_to user_date_of_path(id: @date_of.id)
     end
 
-    def create
-        @date_of = DateOf.create(date_params)
-    end
+    # remove new page, when new date_of created, redirect to date show page
+
+    # def create
+    #     redirect_to user_date_of_path(id: @date_of.id)
+    # end
 
     def show
     end
