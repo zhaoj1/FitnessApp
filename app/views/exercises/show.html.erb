@@ -1,18 +1,43 @@
-<div class="container">
-    <div class="d-flex justify-content-center">
-<h1><%= @exercise.exercise_name %></h1><br>
-<p><%= @exercise.category %></p><br>
-<p><%= @exercise.exercise_difficulty %></p><br>
-<p><%= @exercise.exercise_impact_level %></p><br>
-<p><%= @exercise.target_body_parts %></p>
-</div>
-<%= form_tag "/users/#{session[:user_id]}/myworkout/", method: "post" do %>
-<%= collection_select(:workout, :id, Workout.where(user_id: session[:user_id]), :id, :name) %>
-<%= hidden_field_tag "exercise_id", @exercise.id %>
-<%= submit_tag("Add to Workout") %>
-<% end %>
 
-<br><%= link_to "Back", exercises_path %>
-<br><video src=<%= @exercise.exercise_video %> autoplay loop /> 
+    <div class="container d-flex justify-content-center">
+        <h1><%= @exercise.exercise_name %></h1>
+    </div>
+    
+    <div class="container d-flex justify-content-center w-50">
+        <video src=<%= @exercise.exercise_video %> autoplay loop width="480px" ></video><br>
+    </div>
+
+    <%= form_tag "/users/#{session[:user_id]}/myworkout/", method: "post", class: "form-inline justify-content-center" do %>
+    <div class="form-group mx-4">
+        <%= collection_select(:workout, :id, Workout.where(user_id: session[:user_id]), :id, :name, class: "form-control") %>
+    </div>
+    <%= hidden_field_tag "exercise_id", @exercise.id %>
+    <%= submit_tag("Add to Workout", class: "btn btn-primary btn-sm") %>
+    <% end %>
+
+ <div class="container">
+    
+    <div class="row">
+        <div class="col-6 bg-info">
+            <p><%= @exercise.category %></p>
+        </div>
+        <div class="col-6 bg-info">
+            <p><%= @exercise.exercise_difficulty %></p>
+        </div>  
+    </div>
+    
+    <div class="row">
+        <div class="col-6">
+            <p><%= @exercise.exercise_impact_level %></p>
+        </div>
+        <div class="col-6">
+            <p><%= @exercise.target_body_parts %></p>
+        </div>
+    </div>
 
 </div>
+
+<div class="d-flex justify-content-center">
+    <%= link_to "Back", exercises_path, class: "btn btn-primary btn-sm" %>
+</div>
+
