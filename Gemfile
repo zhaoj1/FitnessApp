@@ -58,4 +58,6 @@ gem "simple_calendar", "~> 2.0"
 
 gem 'nokogiri'
 gem 'httparty'
+gem 'bootstrap', '~> 4.3.1'
+
 

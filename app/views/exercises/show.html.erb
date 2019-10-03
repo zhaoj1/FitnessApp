@@ -1,9 +1,11 @@
-<h1><%= @exercise.exercise_name %></h1>
-<p><%= @exercise.category %></p>
-<p><%= @exercise.exercise_difficulty %></p>
-<p><%= @exercise.exercise_impact_level %></p>
+<div class="container">
+    <div class="d-flex justify-content-center">
+<h1><%= @exercise.exercise_name %></h1><br>
+<p><%= @exercise.category %></p><br>
+<p><%= @exercise.exercise_difficulty %></p><br>
+<p><%= @exercise.exercise_impact_level %></p><br>
 <p><%= @exercise.target_body_parts %></p>
-
+</div>
 <%= form_tag "/users/#{session[:user_id]}/myworkout/", method: "post" do %>
 <%= collection_select(:workout, :id, Workout.where(user_id: session[:user_id]), :id, :name) %>
 <%= hidden_field_tag "exercise_id", @exercise.id %>
@@ -11,4 +13,6 @@
 <% end %>
 
 <br><%= link_to "Back", exercises_path %>
-<br><video src=<%= @exercise.exercise_video %> autoplay loop />
+<br><video src=<%= @exercise.exercise_video %> autoplay loop /> 
+
+</div>
