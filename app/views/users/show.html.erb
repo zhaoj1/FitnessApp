@@ -1,47 +1,31 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    
-    <title></title>
+<body> 
 
-    <style>
+<style>
 
-        body, html {
-            height: 100%;
-        }
-        
-    </style>
+body, html {
+    height: 100%;
+}
 
-</head>
+</style>
+
 
 <div class="background" style="background-image: url(https://thumbs.dreamstime.com/b/fitness-bodybuilding-background-dumbbells-gym-floor-top-view-fitness-bodybuilding-concept-background-product-photograph-108091636.jpg); height:100%;  background-position: bottom; background-repeat: no-repeat; background-size: cover;">
 
-    <body>
-<!--
-<div class="container img-fluid" style="background-image: url(https://thumbs.dreamstime.com/b/fitness-bodybuilding-background-dumbbells-gym-floor-top-view-fitness-bodybuilding-concept-background-product-photograph-108091636.jpg); background-size:cover">
--->
+    <h1 class="d-flex justify-content-center">My Fitness Profile</h1><br>
+    <img src="https://i.stack.imgur.com/34AD2.jpg" class="rounded mx-auto d-block" alt="That's Me!"><br>
+    <h3 class="d-flex justify-content-center"><%= @user.name %></h3><br>
 
-<h1 class="d-flex justify-content-center">My Fitness Profile</h1><br>
-<img src="https://i.stack.imgur.com/34AD2.jpg" class="rounded mx-auto d-block" alt="That's Me!"><br>
-<h3 class="d-flex justify-content-center"><%= @user.name %></h3><br>
+    <p class="d-flex justify-content-center">Age: <%= @user.age %></p>
+    <p class="d-flex justify-content-center">Weight: <%= @user.weight %> lbs</p>
+    <p class="d-flex justify-content-center"><%= link_to "Edit Profile", edit_user_path(@user) %></p>
 
-<p class="d-flex justify-content-center">Age: <%= @user.age %></p>
-<p class="d-flex justify-content-center">Weight: <%= @user.weight %> lbs</p>
-<p class="d-flex justify-content-center"><%= link_to "Edit Profile", edit_user_path(@user) %></p>
+    <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-secondary btn-sm mr-1"><%= link_to "Calendar View", user_date_ofs_path(@user) %></button>   
+    <button type="button" class="btn btn-secondary btn-sm"><%= link_to "All My Workouts", user_workouts_path(@user) %></button><br>
+    </div><br>
 
-<div class="d-flex justify-content-center">
-<button type="button" class="btn btn-secondary btn-sm mr-1"><%= link_to "Calendar View", user_date_ofs_path(@user) %></button>   
-<button type="button" class="btn btn-secondary btn-sm"><%= link_to "All My Workouts", user_workouts_path(@user) %></button><br>
-</div><br>
-
-<p class="d-flex justify-content-center"><%= link_to "Logout", logout_path %></p>
-
+    <p class="d-flex justify-content-center"><%= link_to "Logout", logout_path %></p>
+    
 </div>  
 </body>
 </html>
