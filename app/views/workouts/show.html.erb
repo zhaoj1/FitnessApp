@@ -1,13 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+    <title></title>
+
+    <style>
+
+    html, body{
+        margin: 0;
+    }
+
+    .container{
+        padding: 5px 0 5px 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    </style>
+</head>
+
+<body>
+<div class="container">
 <h1><%= @workout.name %></h1>
-<p>Workout Date: <%= @workout.workout_date.strftime('%m-%d-%Y') %></p>
+</div>
+
+<div class="container">
+<p><%= @workout.workout_date.strftime('%B %d') %></p>
+</div> 
+<div class="container">
 <p>Workout Length: <%= pluralize(@workout.length, 'Minute') %></p>
+</div> 
 
-<p>Exercises</p>
-<% @workout.exercises.each do |exercise| %>
-<img src=<%=exercise.image_url%> style="width:420px;height:200px"/><br>
-<%= link_to exercise.exercise_name, exercise_path(exercise) %><br><br>
-<% end %>
+<!--
+# <p>Exercises</p>
+# <% @workout.exercises.each do |exercise| %>
+# <img src=<%=exercise.image_url%> style="width:420px;height:200px"/><br>
+# <%= link_to exercise.exercise_name, exercise_path(exercise) %><br><br>
+# <% end %>
+
+# <%= link_to "View Exercises", exercises_path %><br>
+# <%= link_to "Back", user_workouts_path %>
+-->
 
 
-<%= link_to "View Exercises", exercises_path %><br>
-<%= link_to "Back", user_workouts_path %>
+<div class="container justify-content-center"> 
+    <a href="/exercises" class="btn btn-primary mr-5">View Exercises</a>
+    <a href="/users/<%= @workout.user_id %>/workouts" class="btn btn-primary mr-5">Back</a>    
+</div>
+
+<div class="container">
+    <h2>Exercises</h2>
+</div>
+
+<div class="container"> 
+    <div class="row">    
+        <% @workout.exercises.each do |exercise| %>
+            <div class="col-sm-6 col-lg-3 py-2 mr-5">
+                <div class="card text-white bg-dark mb-5" style="width: 18rem;">
+                <% if @workout.exercises.count > 0 %>
+                    <img src="<%= exercise.image_url %>" class="card-img-top">
+                <% end %>
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-center"><%= exercise.exercise_name %></h5>
+                        <a href="/exercises/<%= exercise.id %>" class="btn btn-primary d-flex justify-content-center">View Exercise</a>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+</body>
+</html>
