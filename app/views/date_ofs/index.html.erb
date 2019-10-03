@@ -24,21 +24,24 @@
 
     .mx-auto{
         width: 75%;
+        justify-content: center;
     }
 
     </style>
+
 </head>
 
 <body>
 <div class="mx-auto">
 <%= month_calendar do |date| %>
-    <% if DateOf.find_by(date_of: date) %>
+    <% if DateOf.find_by(date_of: date, user_id: session[:user_id]) %>
         <%= link_to date.day, user_date_of_path(user_id: session[:user_id], id: DateOf.find_by(date_of: date).id) %>
     <% else %>
-        <%= link_to date.day, new_user_date_of_path(user_id: session[:user_id], date_of: date.to_date) %>
+        <%= link_to date.day, new_user_date_of_path(user_id: session[:user_id], date_of: date) %>
     <% end %>
 <% end %>
-<%= link_to "Back", user_path(@user) %>
+    <a class="btn btn-primary" href='/users/<%= @user.id %>' role="button" >Back</a>
+    </div>
 </div>
 </body>
 </html>

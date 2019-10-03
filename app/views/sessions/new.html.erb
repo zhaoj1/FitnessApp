@@ -1,12 +1,65 @@
-<% if flash[:error] %>
-    <p><%= flash[:error] %></p>
-<% end %>
+<body>
 
+<style>
+
+html, body{
+    margin: 0;
+}
+
+.container{
+    padding: 25px 0 15px 0;
+    margin-top: 25px;
+    width: 15%;
+    display: flex;
+    text_align: center;
+    justify-content: center;
+    background-color: black;
+    border-radius: 25px;
+}
+
+.buttonholder{
+    width: 50%;
+    text-align: center;
+}
+
+.form-groups{
+    margin-top: 10px;
+}
+
+</style>
+
+<div class="container">
+    <% if flash[:login_error] %>
+        <p><%= flash[:login_error] %></p>
+    <% end %>
+    <%= form_tag login_path do %>
+        <div class="form-groups">
+            <%= text_field_tag :"user[username]", nil, placeholder: "Username" %>
+        </div>
+        <div class="form-groups">
+            <%= password_field_tag :"user[password]", nil, placeholder: "Password" %>
+        </div>
+        <div class="buttonholder">
+            <%= submit_tag 'Login' %>
+        </div>
+    <% end %>
+    
+</div>
+
+</body>
+
+<!--
+<div class="container">
 <%= form_tag login_path do %>
-    <%= label_tag :for, "Username " %>
-    <%= text_field_tag :"user[username]" %><br>
-    <%= label_tag :for, "Password " %>
-    <%= password_field_tag :"user[password]" %><br>
-
-    <%= submit_tag 'Login' %><br>
+    <div class="form-groups">
+        <%= label_tag :for, "Username " %>
+        <%= text_field_tag :"user[username]" %><br>
+    </div>
+    <div class="form-groups">
+        <%= label_tag :for, "Password " %>
+        <%= password_field_tag :"user[password]" %><br>
+    </div>
+        <%= submit_tag 'Login' %><br>
 <% end %>
+</div>
+-->

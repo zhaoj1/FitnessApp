@@ -1,10 +1,62 @@
-<h1><%= @date.date_of.strftime("%B %d") %> Workouts</h1>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+    <title></title>
 
-<h3>Workouts</h3>
-<ul>
-<% @date.workouts.each do |workout| %>
-    <li><%= link_to workout.name, user_workout_path(user_id: session[:user_id], id: workout.id) %></li>
+    <style>
+
+    html, body{
+        margin: 0;
+    }
+
+    .container{
+        padding: 5px 0 5px 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+<h1><%= @date.date_of.strftime("%B %d") %></h1>
+</div>
+
+<div class="container">
+<h3>Workout</h3>
+</div>
+
+<div class="container">
+
+<% if @date.workouts.count > 0 %>
+    <% @date.workouts.each do |workout| %>
+        <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+        <% if workout.exercises.count > 0 %>
+            <img src="<%= workout.exercises[(rand 0..(workout.exercises.count-1))].image_url %>" class="card-img-top">
+        <% end %>
+            <div class="card-body">
+                <h5 class="card-title d-flex justify-content-center"><%= workout.name %></h5>
+                <a href="/users/<%= workout.user_id %>/workouts/<%= workout.id %>" class="btn btn-primary d-flex justify-content-center">View Workout</a>
+            </div>
+        </div>
+    <% end %>
+<% else %>
+    <p><%= link_to "No Workouts. Please add a workout", user_workouts_path(user_id: session[:user_id]) %>.</p>
 <% end %>
-</ul>
 
-<%= link_to "Back", user_date_ofs_path(@user) %>
+</div>
+
+<div class="container">
+<a href="/users/<%= @date.user_id %>/date_ofs" class="btn btn-primary d-flex justify-content-center">Back</a>
+</div>
+</body>
+</html>
