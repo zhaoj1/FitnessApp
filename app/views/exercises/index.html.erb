@@ -1,95 +1,237 @@
-<h1>All Exercises</h1>
+<style>
 
-<div class="quick_links"> <!-- sidebar? + back to top -->
-        <a href="#upper_body">Upper Body</a><br>
-        <a href="#lower_body">Lower Body</a><br>
-        <a href="#core">Core</a><br>
-        <a href="#back">Back</a><br>
-        <a href="#cardio">Cardio</a><br>
-        <a href="#yoga">Yoga</a><br>
-        <a href="#pilates">Pilates</a><br>
-        <a href="#stretching">Stretching</a><br>
+    html, body {
+        margin: 0;
+    }
+
+    .container{
+        width: 800px;
+        left: 15%;
+        margin: 5px 0px 0 20px;
+    }
+
+    .sidenav{
+        background-color: #356486;
+        height: 100%; 
+        width: 10%; 
+        position: fixed; 
+        z-index: 1; 
+        top: 7%; 
+        left: 0; 
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+    .sidenav a{
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 15px;
+        color: whitesmoke;
+        display: block;
+    }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    .main {
+        margin-left: 15%;
+        length: 100%;
+        width: 100%;
+        padding: 0px 10px;
+    }
+
+    .button{
+        margin-left: 317px;
+        width:200px;
+        justify-content: center;
+    }
+
+    .top-box{
+        margin-left: -585px;
+        text-align: center;
+        justify-content: center;
+    }
+
+
+</style>
+
+<div class="container">
+    <div class="sidenav" style="">
+        <a href="#upper_body">Upper Body</a>
+        <a href="#lower_body">Lower Body</a>
+        <a href="#core">Core</a>
+        <a href="#back">Back</a>
+        <a href="#cardio">Cardio</a>
+        <a href="#yoga">Yoga</a>
+        <a href="#pilates">Pilates</a>
+        <a href="#stretching">Stretching</a>
+        <a href="/exercises">Back to Top</a>
+    </div>
 </div>
 
-<%= link_to "Return to Workouts", user_workouts_path(user_id: session[:user_id]) %>
 
-<div id="upper_body">
-<ul>
-<h3>Upper Body</h3>
-<% Exercise.upper_body.each do |exercise| %>
-    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
-    <img src=<%=exercise.image_url%> />
-    <!-- <%= link_to "Add to workout" %> exercises_workout join table -->
-<% end %>
-</ul>
+<div class="main">
+
+    <h1 class="top-box">All Exercises</h1>
+
+        <div class="button">
+        <a href="/users/<%= session[:user_id] %>/workouts" class="btn btn-primary d-flex justify-content-center">Return to Workouts</a>
+        </div>
+
+<div class="container">
+    
+    <div id="upper_body"><br><br><br><h3>Upper Body</h3></div>
+    
+    <div class="container">
+        <div class="row">
+            <% Exercise.upper_body.each do |exercise| %>
+                <div class="col-6 col-6">
+                    <div class="card text-white bg-dark mb-5" style="width: 18rem;">
+                        <img src="<%= exercise.image_url %>" class="card-img-top" >
+                        <div class="card-body">
+                            <h5 class="card-title d-flex justify-content-center"><%= exercise.exercise_name %></h5>
+                            <a href="/exercises/<%= exercise.id %>" class="btn btn-primary d-flex justify-content-center">View Exercise</a>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+
+<div id="lower_body"><br><br><br><h3>Lower Body</h3>
+
+<div class="container">
+    <div class="row">
+        <% Exercise.lower_body.each do |exercise| %>
+            <div class="col-6 col-6">
+                <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+                    <img src="<%=exercise.image_url%>" class="card-img-top" >
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-center"><%= exercise.exercise_name %></h5>
+                        <a href="/exercises/<%= exercise.id %>" class="btn btn-primary d-flex justify-content-center">View Exercise</a>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
 </div>
 
-<div id="lower_body">
-<ul>
-<h3>Lower Body</h3>
-<% Exercise.lower_body.each do |exercise| %>
-    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
-    <img src=<%=exercise.image_url%> />
-<% end %>
-</ul>
+<div id="core"><h3><br><br><br>Core</h3>
+
+<div class="container">
+    <div class="row">
+        <% Exercise.core.each do |exercise| %>
+            <div class="col-6 col-6">
+                <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+                    <img src="<%=exercise.image_url%>" class="card-img-top" >
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-center"><%= exercise.exercise_name %></h5>
+                        <a href="/exercises/<%= exercise.id %>" class="btn btn-primary d-flex justify-content-center">View Exercise</a>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
 </div>
 
-<div id="core">
-<ul>
-<h3>Core</h3>
-<% Exercise.core.each do |exercise| %>
-    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
-    <img src=<%=exercise.image_url%> />
-<% end %>
-</ul>
+<div id="back"><h3><br><br><br>Back</h3>
+
+<div class="container">
+    <div class="row">
+        <% Exercise.back.each do |exercise| %>
+            <div class="col-6 col-6">
+                <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+                    <img src="<%=exercise.image_url%>" class="card-img-top" >
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-center"><%= exercise.exercise_name %></h5>
+                        <a href="/exercises/<%= exercise.id %>" class="btn btn-primary d-flex justify-content-center">View Exercise</a>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
 </div>
 
-<div id="back">
-<ul>
-<h3>Back</h3>
-<% Exercise.back.each do |exercise| %>
-    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
-    <img src=<%=exercise.image_url%> />
-<% end %>
-</ul>
+<div id="cardio"><h3><br><br><br>Cardio</h3>
+
+<div class="container">
+    <div class="row">
+        <% Exercise.cardio.each do |exercise| %>
+            <div class="col-6 col-6">
+                <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+                    <img src="<%=exercise.image_url%>" class="card-img-top" >
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-center"><%= exercise.exercise_name %></h5>
+                        <a href="/exercises/<%= exercise.id %>" class="btn btn-primary d-flex justify-content-center">View Exercise</a>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
 </div>
 
-<div id="cardio">
-<ul>
-<h3>Cardio</h3>
-<% Exercise.cardio.each do |exercise| %>
-    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
-    <img src=<%=exercise.image_url%> />
-<% end %>
-</ul>
+<div id="yoga"><h3><br><br><br>Yoga</h3>
+
+<div class="container">
+    <div class="row">
+        <% Exercise.yoga.each do |exercise| %>
+            <div class="col-6 col-6">
+                <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+                    <img src="<%=exercise.image_url%>" class="card-img-top" >
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-center"><%= exercise.exercise_name %></h5>
+                        <a href="/exercises/<%= exercise.id %>" class="btn btn-primary d-flex justify-content-center">View Exercise</a>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
 </div>
 
-<div id="yoga">
-<ul>
-<h3>Yoga</h3>
-<% Exercise.yoga.each do |exercise| %>
-    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
-    <img src=<%=exercise.image_url%> />
-<% end %>
-</ul>
+<div id="pilates"><h3><br><br><br>Pilates</h3>
+
+<div class="container">
+    <div class="row">
+        <% Exercise.pilates.each do |exercise| %>
+            <div class="col-6 col-6">
+                <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+                    <img src="<%=exercise.image_url%>" class="card-img-top" >
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-center"><%= exercise.exercise_name %></h5>
+                        <a href="/exercises/<%= exercise.id %>" class="btn btn-primary d-flex justify-content-center">View Exercise</a>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
 </div>
 
-<div id="pilates">
-<ul>
-<h3>Pilates</h3>
-<% Exercise.pilates.each do |exercise| %>
-    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
-    <img src=<%=exercise.image_url%> />
-<% end %>
-</ul>
-</div>
+<div id="stretching"><h3><br><br><br>Stretching</h3>
 
-<div id="stretching">
-<ul>
-<h3>Stretching</h3>
-<% Exercise.stretching.each do |exercise| %>
-    <li><%= link_to exercise.exercise_name, exercise_path(exercise) %></li>
-    <img src=<%=exercise.image_url%> />
-<% end %>
-</ul>
+<div class="container">
+    <div class="row">
+        <% Exercise.stretching.each do |exercise| %>
+            <div class="col-6 col-6">
+                <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+                    <img src="<%=exercise.image_url%>" class="card-img-top" >
+                    <div class="card-body">
+                        <h5 class="card-title d-flex justify-content-center"><%= exercise.exercise_name %></h5>
+                        <a href="/exercises/<%= exercise.id %>" class="btn btn-primary d-flex justify-content-center">View Exercise</a>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+</div>
+</div>
+</div>
 </div>
