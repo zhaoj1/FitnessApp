@@ -1,13 +1,49 @@
-<h1>New User Form</h1>
+<style>
 
-<%= form_tag @user do %>
+        body, html {
+            height: 100%;
+        }
 
-    <% if flash[:errors] %>
-        <% flash[:errors].each do |err| %>
-            <p><%= err %></p>
-        <% end %>
-    <% end %>
+        .wrapper {
+            padding: 5% 0;
+           
+        }
 
+        .container {
+            border: 5px solid rgba(75, 87, 122, 0.2);
+            width: 25%;
+            background: #356486;
+        }
+
+        .form-groups{
+            margin-top: 10px;
+        }
+
+        .background {
+            background-image: url('https://thumbs.dreamstime.com/b/fitness-bodybuilding-background-dumbbells-gym-floor-top-view-fitness-bodybuilding-concept-background-product-photograph-108091636.jpg');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+    </style>
+
+
+<div class="background img-fluid" style="background-image: url('https://thumbs.dreamstime.com/b/fitness-bodybuilding-background-dumbbells-gym-floor-top-view-fitness-bodybuilding-concept-background-product-photograph-108091636.jpg'); height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover;"> 
+
+<div class="wrapper">
+
+
+    <div class="container rounded">
+        <h1 class="d-flex justify-content-center text-light">New User</h1>
+        <%= form_tag @user do %>
+            <% if flash[:errors] %>
+                <% flash[:errors].each do |err| %>
+                    <p><%= err %></p>
+                <% end %>
+             <% end %>
+    <div class="form-groups text-center text-light">
     <%= label_tag :for, "Username " %>
     <%= text_field_tag :"user[username]" %><br>
     <%= label_tag :for, "Password " %>
@@ -20,6 +56,10 @@
     <%= text_field_tag :"user[weight]" %><br>
 
     <%= submit_tag 'Create User' %><br>
+    </div>
 <% end %>
 
-<%= link_to "Cancel", '/' %>
+<div class="centered text-center">
+    <%= link_to "Cancel", '/' %>
+</div>
+    </div>

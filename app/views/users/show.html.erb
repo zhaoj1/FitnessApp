@@ -3,26 +3,39 @@
     body, html {
         height: 100%;
     }
+        
+
+        .wrapper {
+            padding: 5% 0;
+           
+        }
+
+        .container {
+            border: 5px solid rgba(75, 87, 122, 0.2);
+            width: 30%;
+            background: rgba(0,0,0,.6);
+            box-shadow: 5px 10px #356486;
+        }
+
+        .background {
+            background-image: url('https://thumbs.dreamstime.com/b/fitness-bodybuilding-background-dumbbells-gym-floor-top-view-fitness-bodybuilding-concept-background-product-photograph-108091636.jpg');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
 
     .wrapper {
         padding: 5% 0;   
     }   
 
-    .container {
-        border: 5px solid rgba(75, 87, 122, 0.2);
-        width: 30%;
-        background: rgba(0,0,0,.6);
-        box-shadow: 5px 10px #356486;
-    }
 
-</style>
+    <div class="background img-fluid" style="background-image: url('https://thumbs.dreamstime.com/b/fitness-bodybuilding-background-dumbbells-gym-floor-top-view-fitness-bodybuilding-concept-background-product-photograph-108091636.jpg'); height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover;"> 
 
-<body>
-    
-<div class="background img-fluid" style="background-image: url(https://thumbs.dreamstime.com/b/fitness-bodybuilding-background-dumbbells-gym-floor-top-view-fitness-bodybuilding-concept-background-product-photograph-108091636.jpg); background-size:cover; background-position: center; background-repeat: no-repeat; background-size: cover; height:120%">
+    <div class="wrapper">
 
-
-<div class="wrapper">
     <div class="container rounded">
         <h1 class="d-flex justify-content-center text-light">My Fitness Profile</h1><br>
         <img src="https://i.stack.imgur.com/34AD2.jpg" class="rounded mx-auto d-block" alt="That's Me!"><br>
@@ -40,5 +53,7 @@
         <p class="d-flex justify-content-center"><%= link_to "Logout", logout_path %></p>
     </div>
 </div>
+</div>
+
 
 </body>

@@ -1,19 +1,21 @@
-<body>
-
 <style>
 
 html, body{
+    margin: 0;
     height: 100%;
 }
 
-.container {
-        border: 5px solid rgba(75, 87, 122, 0.2);
-        width: 30%;
-        background: rgba(0,0,0,.6);
-        box-shadow: 5px 10px #356486;
-        color: white;
-        text-align: center;
-    }
+.container{
+    padding: 25px 0 15px 0;
+    height: 25%;
+    width: 25%;
+    display: flex;
+    text_align: center;
+    justify-content: center;
+    background-color: black;
+    border-radius: 25px;
+}
+
 
 .buttonholder{
     width: 50%;
@@ -26,31 +28,53 @@ html, body{
     margin-top: 10px;
 }
 
-.wrapper {
-    padding: 5% 0; 
+.background {
+    background-image: url('https://besthqwallpapers.com/img/original/45386/plank-exercise-front-hold-bodybuilding-bar-sports-exercise.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 </style>
 
-<div class="background img-fluid" style="background-image: url(https://thumbs.dreamstime.com/b/fitness-bodybuilding-background-dumbbells-gym-floor-top-view-fitness-bodybuilding-concept-background-product-photograph-108091636.jpg); background-size:cover; background-position: center; background-repeat: no-repeat; height: 100%">
 
-    <div class="wrapper">
-        <div class="container">
-            <% if flash[:login_error] %>
+<body>
+   <!-- <div class="background"></div> -->
+   <div class="background img-fluid" style="background-image: url('https://besthqwallpapers.com/img/original/45386/plank-exercise-front-hold-bodybuilding-bar-sports-exercise.jpg'); height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover"> 
+
+<div class="container">
+    <div class="row">
+        <% if flash[:login_error] %>
                 <p><%= flash[:login_error] %></p>
-            <% end %>
-            <%= form_tag login_path do %>
-                <div class="form-groups">
-                    <%= text_field_tag :"user[username]", nil, placeholder: "Username" %>
-                </div>
-                <div class="form-groups">
-                    <%= password_field_tag :"user[password]", nil, placeholder: "Password" %>
-                </div>
-                <div class="buttonholder">
-                    <%= submit_tag 'Login' %>
-                </div>
-            <% end %>
+        <% end %>
+    </div>
+
+    <div class="row">
+        <%= form_tag login_path do %>
+        <div class="form-groups">
+            <%= text_field_tag :"user[username]", nil, placeholder: "Username" %>
         </div>
+        <div class="form-groups">
+            <%= password_field_tag :"user[password]", nil, placeholder: "Password" %>
+        </div>
+        <div class="buttonholder">
+            <%= submit_tag 'Login' %>
+        </div>
+    <% end %>
+</div>
+</div>    
+</div>
+</div>
+</body>
+
+<!--
+<div class="container">
+<%= form_tag login_path do %>
+    <div class="form-groups">
+        <%= label_tag :for, "Username " %>
+        <%= text_field_tag :"user[username]" %><br>
+
     </div>
 
 </div>
