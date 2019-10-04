@@ -1,15 +1,15 @@
-<body>
-
 <style>
 
 html, body{
     margin: 0;
+    height: 100%;
+ 
 }
 
 .container{
     padding: 25px 0 15px 0;
-    margin-top: 25px;
-    width: 15%;
+    height: 25%;
+    width: 25%;
     display: flex;
     text_align: center;
     justify-content: center;
@@ -26,13 +26,29 @@ html, body{
     margin-top: 10px;
 }
 
+.background {
+    background-image: url('https://besthqwallpapers.com/img/original/45386/plank-exercise-front-hold-bodybuilding-bar-sports-exercise.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 </style>
 
+<body>
+   <!-- <div class="background"></div> -->
+   <div class="background img-fluid" style="background-image: url('https://besthqwallpapers.com/img/original/45386/plank-exercise-front-hold-bodybuilding-bar-sports-exercise.jpg'); height: 100%; background-position: center; background-repeat: no-repeat; background-size: cover"> 
+
 <div class="container">
-    <% if flash[:login_error] %>
-        <p><%= flash[:login_error] %></p>
-    <% end %>
-    <%= form_tag login_path do %>
+    <div class="row">
+        <% if flash[:login_error] %>
+                <p><%= flash[:login_error] %></p>
+        <% end %>
+    </div>
+
+    <div class="row">
+        <%= form_tag login_path do %>
         <div class="form-groups">
             <%= text_field_tag :"user[username]", nil, placeholder: "Username" %>
         </div>
@@ -43,9 +59,10 @@ html, body{
             <%= submit_tag 'Login' %>
         </div>
     <% end %>
-    
 </div>
-
+</div>    
+</div>
+</div>
 </body>
 
 <!--

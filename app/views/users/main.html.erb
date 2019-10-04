@@ -1,4 +1,7 @@
     <style>
+        body, html {
+            height: 100%;
+        }
 
         .centered{
             position: fixed;
@@ -14,17 +17,24 @@
             background-color: black;
         }
 
+        .background {
+            background-image: url('https://www.mensjournal.com/wp-content/uploads/mf/crossfit-snatch.jpg');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     </style>
 
-
 <body>
+<div class="background"></div> 
     <div class="centered">
         <div class="container">
             <div class="centered">
                 <div class="btn-group-vertical">
-                    <a class="btn btn-info" href=login role="button">Login</a><br>
+                    <a class="btn btn-secondary mybg" href=login role="button">Login</a><br>
                     <!--%= link_to "Login", login_path %-->
-                    <a class="btn btn-info" href='/users/new' role="button">Create Account</a>
+                    <a class="btn btn-secondary mybg" href='/users/new' role="button">Create Account</a>
                     <!--%= link_to "Create Account", new_user_path %-->
                 </div>
             </div>
