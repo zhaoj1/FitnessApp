@@ -1,12 +1,44 @@
-<h1>Edit User Form</h1>
-<%= form_for @user do |f| %>
-    
-    <%= f.label :age %>
-    <%= f.text_field :age %><br>
+<style>
 
-    <%= f.label :weight %>
-    <%= f.text_field :weight %><br>
-    
-    <%= f.submit %>
+    body, html {
+        height: 100%;
+    }
 
-<% end %>
+    .wrapper {
+        padding: 5% 0;   
+    }   
+
+    .container {
+        border: 5px solid rgba(75, 87, 122, 0.2);
+        width: 30%;
+        background: rgba(0,0,0,.6);
+        box-shadow: 5px 10px #356486;
+        color: white;
+        text-align: center;
+    }
+
+</style>
+
+<body>
+    
+<div class="background img-fluid" style="background-image: url(https://thumbs.dreamstime.com/b/fitness-bodybuilding-background-dumbbells-gym-floor-top-view-fitness-bodybuilding-concept-background-product-photograph-108091636.jpg); background-size:cover; background-position: center; background-repeat: no-repeat; background-size: cover; height:120%">
+
+    <div class="wrapper">
+        <div class="container rounded">
+            <h1>Edit User Form</h1>
+            <%= form_for @user do |f| %>
+                
+                <%= f.label :age %>
+                <%= f.text_field :age %><br>
+
+                <%= f.label :weight %>
+                <%= f.text_field :weight %><br>
+                
+                <div class="button">
+                <%= f.submit %>
+                </div>
+
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -3,64 +3,82 @@
 <style>
 
 html, body{
-    margin: 0;
+    height: 100%;
 }
 
 .container{
-    padding: 5px 0 5px 0;
-    display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.text-light {
+    text-align:center;
+    margin: auto;
+}
+
+.row{
+    text-align: center;
+    padding: 5px;
+}
+
+.btn-primary{
+    margin: auto;
+}
+
+.top-box {
+    background-color: rgba(52, 58, 64, 0.47);
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 5px;
+}
+
+.card {
+    margin-top: 8px;
 }
 
 </style>
 
-<div class="container">
-<h1><%= @workout.name %></h1>
-</div>
+<div class="background img-fluid" style="background-image: url(https://thumbs.dreamstime.com/b/fitness-bodybuilding-background-dumbbells-gym-floor-top-view-fitness-bodybuilding-concept-background-product-photograph-108091636.jpg); background-size:cover; background-position: center; background-repeat: no-repeat; background-size: cover; height: 120%;">
 
-<div class="container">
-<p><%= @workout.workout_date.strftime('%B %d') %></p>
-</div> 
-<div class="container">
-<p>Workout Length: <%= pluralize(@workout.length, 'Minute') %></p>
-</div> 
+    <div class="container">
+        <div class="top-box">
+    
+            <div class="row"><h1 class="d-flex justify-content-center text-light"><%= @workout.name %></h1></div>
+            <div class="row"><p class="d-flex justify-content-center text-light"><%= @workout.workout_date.strftime('%B %d') %></p></div>
+            <div class="row"><p class="d-flex justify-content-center text-light">Workout Length: <%= pluralize(@workout.length, 'Minute') %></p></div>
 
-<!--
-# <p>Exercises</p>
-# <% @workout.exercises.each do |exercise| %>
-# <img src=<%=exercise.image_url%> style="width:420px;height:200px"/><br>
-# <%= link_to exercise.exercise_name, exercise_path(exercise) %><br><br>
-# <% end %>
+            <div class="container justify-content-center"> 
+                <div class="row"><a href="/exercises" class="btn btn-primary">View Exercises</a></div>
+                <div class="row"><a href="/users/<%= @workout.user_id %>/workouts" class="btn btn-primary">Back</a></div>
+            </div>
+         </div>    
+    </div>
 
-# <%= link_to "View Exercises", exercises_path %><br>
-# <%= link_to "Back", user_workouts_path %>
--->
+    <div class="container">
+        <div class="top-box">
+            <h2 class="d-flex justify-content-center text-light">Exercises</h2>
+        </div>
+    </div>
 
-
-<div class="container justify-content-center"> 
-    <a href="/exercises" class="btn btn-primary mr-5">View Exercises</a>
-    <a href="/users/<%= @workout.user_id %>/workouts" class="btn btn-primary mr-5">Back</a>    
-</div>
-
-<div class="container">
-    <h2>Exercises</h2>
-</div>
-
-<div class="container"> 
-    <div class="row">    
-        <% @workout.exercises.each do |exercise| %>
-            <div class="col-sm-6 col-lg-3 py-2 mr-5">
-                <div class="card text-white bg-dark mb-5" style="width: 18rem;">
-                <% if @workout.exercises.count > 0 %>
-                    <img src="<%= exercise.image_url %>" class="card-img-top">
-                <% end %>
-                    <div class="card-body">
-                        <h5 class="card-title d-flex justify-content-center"><%= exercise.exercise_name %></h5>
-                        <a href="/exercises/<%= exercise.id %>" class="btn btn-primary d-flex justify-content-center">View Exercise</a>
+    <div class="container"> 
+        <div class="row">    
+            <% @workout.exercises.each do |exercise| %>
+                <div class="col-4 col-4 col-4">
+                    <div class="card text-white bg-dark" style="width: 18rem;">
+                    <% if @workout.exercises.count > 0 %>
+                        <img src="<%= exercise.image_url %>" class="card-img-top">
+                    <% end %>
+                        <div class="card-body">
+                            <h5 class="card-title d-flex justify-content-center"><%= exercise.exercise_name %></h5>
+                            <a href="/exercises/<%= exercise.id %>" class="btn btn-primary d-flex justify-content-center">View Exercise</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <% end %>
+            <% end %>
+        </div>
     </div>
 </div>
 

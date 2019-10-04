@@ -3,36 +3,44 @@
 <style>
 
 html, body {
-    margin: 0;
+    height: 100%;
 }
 
 container{
-padding: 5px 0 15px 0;
-display: flex;
-justify-content: space-around;
+    padding: 5px 0 15px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.top-box{
+    background-color: rgba(52, 58, 64, 0.47);
+    width: 45%;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: auto;
+    text-align: center;
+    height: 135px;
+    font-size: 40px;
+    color: white;
+}
+
+.card {
+    margin-top: 8px;
 }
 
 </style>
 
-<div class="container d-flex justify-content-center">
-<h1>All My Favorite Workouts!!!</h1>
-</div>
+<div class="background img-fluid" style="background-image: url(https://thumbs.dreamstime.com/b/fitness-bodybuilding-background-dumbbells-gym-floor-top-view-fitness-bodybuilding-concept-background-product-photograph-108091636.jpg); background-size:cover; background-position: center; background-repeat: no-repeat; background-size: cover; height: 120%;;">
 
-<!--
-# <%= link_to "New Workout", new_user_workout_path %>
-# <%= link_to "Back", user_path(@user) %>
-
-# <ul>
-# <% @workouts.order(:workout_date).each do |workout| %>
-#     <li><%= link_to workout.name, user_workout_path(user_id: workout.user_id, id: workout.id) %></li>
-# <% end %>
-# </ul>
--->
 
 <div class="container d-flex justify-content-center">
-    <a class="btn btn-primary mr-5" href='/users/<%= @user.id %>/workouts/new' role="button">New Workout</a>
-    <a class="btn btn-primary mr-5" href='/users/<%= @user.id %>' role="button">Back</a>
+    <div class="top-box"
+        <h1>All My Favorite Workouts!!!</h1>
+        <a class="btn btn-primary" href='/users/<%= @user.id %>/workouts/new' role="button">New Workout</a>
+        <a class="btn btn-primary" href='/users/<%= @user.id %>' role="button">Back</a>
+    </div>
 </div>
+
 
 <div class="container">
         <div class="row">    
